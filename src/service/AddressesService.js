@@ -21,5 +21,9 @@ export default {
 
   getAddressByFuzzy(word) {
     return axios.get(`${route}/search`, {params: {'word':word}})
+  },
+
+  delete(id) {
+    return axios.delete(`${route}/delete`, {params: {'id':id}})
   }
 }
