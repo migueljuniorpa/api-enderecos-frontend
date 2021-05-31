@@ -1,5 +1,9 @@
 <template>
   <q-page padding>
+    <div class="row q-mr-sm q-pl-sm">
+      <h5 class="">Endereços</h5>
+    </div>
+
     <div class="row q-ma-sm q-">
       <div class="col-sm-4 col-md-2 col-xl-2 col-lg-2">
         <q-select
@@ -65,6 +69,7 @@
         <template>
           <div>
             <q-table
+              v-if="this.data.length !== 0"
               class="q-mr-sm q-pa-none"
               :data="data"
               :columns="columns"

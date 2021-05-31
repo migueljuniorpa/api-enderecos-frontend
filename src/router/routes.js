@@ -6,15 +6,11 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import('pages/Index.vue')
+        component: () => import('pages/AddressesSearch.vue')
       },
       {
         path: '/list',
         component: () => import('pages/AddressesList.vue')
-      },
-      {
-        path: '/search',
-        component: () => import('pages/AddressesSearch.vue')
       },
     ]
   },
