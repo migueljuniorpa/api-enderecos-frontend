@@ -18,7 +18,7 @@
       <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px;  border-right: 1px solid rgb(221, 221, 221);">
         <q-list padding>
           <q-item
-            to="/search"
+            to="/"
             clickable
             v-ripple
           >
