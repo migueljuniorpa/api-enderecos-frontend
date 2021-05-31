@@ -96,7 +96,8 @@ import addressesService from "src/service/AddressesService"
 export default {
   name: 'Form',
   props: [
-    'item'
+    'item',
+    'action'
   ],
   validations: {
     form: {
@@ -125,6 +126,13 @@ export default {
           this.form = newValue
         }
       }
+    },
+    action: {
+      immediate: true,
+      deep: true,
+      handler(newValue) {
+        this.actionRoute = newValue
+      }
     }
   },
   data () {
@@ -134,6 +142,7 @@ export default {
         createAddress: false,
         getAddress: false
       },
+      actionRoute: '',
       form: {
         id: '',
         zipcode: '',
@@ -162,7 +171,7 @@ export default {
       if (!this.$v.$invalid) {
         this.loadings.createAddress = true
 
-        if (typeof this.form.id === 'undefined') {
+        if (this.actionRoute === 'create') {
           this.createAddress()
         } else {
           this.updateAddress()

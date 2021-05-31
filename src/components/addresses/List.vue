@@ -68,6 +68,7 @@
         <q-card-section>
           <Form
             :item="address ? address : {}"
+            :action="action"
             @update-table="updateTable"
             @close-modal="closeModal"
           />
@@ -120,6 +121,7 @@ export default {
       address: {},
       textAddress: '',
       addressToDelete: '',
+      action: '',
       title: 'Cadastrar endereço',
       dialog: false,
       dialogDeleteAddress: false,
@@ -144,12 +146,6 @@ export default {
   computed: {
   },
   methods: {
-    editAddress(row) {
-      this.address = row
-      this.title = 'Atualizar endereço'
-      this.dialog = true
-    },
-
     getAll() {
       this.loadings.table = true
 
@@ -169,6 +165,13 @@ export default {
       this.textAddress = `${address.street} - ${address.neighborhood} - ${address.city} ${address.state}, ${address.zipcode}`
       this.dialogDeleteAddress = true
       this.addressToDelete = address.id
+    },
+
+    editAddress(row) {
+      this.address = row
+      this.title = 'Atualizar endereço'
+      this.action = 'update'
+      this.dialog = true
     },
 
     deleteAddress() {
@@ -195,6 +198,7 @@ export default {
     showModal() {
       this.address = {}
       this.title = 'Cadastrar endereço'
+      this.action = 'create'
       this.dialog = true
     },
 
