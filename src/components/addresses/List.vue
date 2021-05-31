@@ -83,7 +83,7 @@
       persistent
     >
       <q-card style="width: 310px">
-        <q-card-section class="bg-warning text-white">
+        <q-card-section class="bg-negative text-white text-center">
           <div class="text-h6 q-mb-md">
             <span class="text-weight-bold">{{ textAddress }}</span>
           </div>
